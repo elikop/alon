@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>בלש החומרים הצעיר - המהדורה הסופית</title>
+    <title>בלש החומרים הצעיר - גרסת המאסטר המורחבת</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-/* 1. הגדרות בסיס ועיצוב */
-* {
-    box-sizing: border-box;
-}
-
+/* 1. הגדרות בסיס */
+* { box-sizing: border-box; }
 body {
-    background-color: #f0f9ff; /* כחול בהיר ורענן */
+    background-color: #f0f9ff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,9 +44,10 @@ body {
 h1 { font-size: 64px; font-weight: 700; color: #0f172a; margin: 0 0 10px 0; text-align: center; }
 h2 { font-size: 36px; font-weight: 700; color: #334155; margin-top: 0; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 3px solid #e2e8f0; }
 h3 { font-size: 28px; font-weight: 700; color: #0284c7; margin-bottom: 15px; margin-top: 0; }
-h4 { font-size: 22px; margin: 0 0 10px 0; color: #0f172a; }
+h4 { font-size: 22px; margin: 0 0 10px 0; color: #0f172a; border-right: 4px solid #3b82f6; padding-right: 10px; }
 p, li { font-size: 20px; line-height: 1.6; margin-bottom: 12px; color: #334155; }
 ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
+strong { color: #0f172a; }
 
 /* 4. רכיבים מיוחדים */
 .story-box {
@@ -60,17 +58,22 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
     margin: 20px 0;
     position: relative;
 }
-
 .story-box::before {
-    content: '📖 סיפור מצחיק:';
-    position: absolute;
-    top: -16px;
-    right: 20px;
-    background: #fff;
-    padding: 0 10px;
-    font-weight: 700;
-    color: #ea580c;
-    font-size: 18px;
+    content: '📖 סיפור הבלשים:';
+    position: absolute; top: -16px; right: 20px; background: #fff; padding: 0 10px; font-weight: 700; color: #ea580c; font-size: 18px;
+}
+
+.science-box {
+    background-color: #f0f9ff;
+    border: 2px solid #0ea5e9;
+    border-radius: 16px;
+    padding: 25px;
+    margin: 20px 0;
+    position: relative;
+}
+.science-box::before {
+    content: '🔬 למה זה קורה? (המדע שמאחורי):';
+    position: absolute; top: -16px; right: 20px; background: #fff; padding: 0 10px; font-weight: 700; color: #0284c7; font-size: 18px;
 }
 
 .highlight-box {
@@ -81,140 +84,28 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
     border-right: 6px solid #3b82f6;
 }
 
-.detective-tip {
-    background-color: #f0fdf4;
-    border: 2px solid #22c55e;
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 20px;
-    position: relative;
-}
-
-.detective-tip::before {
-    content: '🕵️‍♂️ עובדה לבלשים:';
-    position: absolute;
-    top: -16px;
-    right: 20px;
-    background: #fff;
-    padding: 0 10px;
-    font-weight: 700;
-    color: #16a34a;
-    font-size: 18px;
-}
-
 /* 5. פריסות */
-.split-layout {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-}
+.split-layout { display: flex; gap: 40px; align-items: center; }
+.split-layout > div { flex: 1; }
+@media (max-width: 800px) { .split-layout { flex-direction: column; } h1 { font-size: 40px; } }
 
-.split-layout > div {
-    flex: 1;
-}
-
-@media (max-width: 800px) {
-    .split-layout { flex-direction: column; }
-    h1 { font-size: 40px; }
-}
-
-.image-container {
-    width: 100%;
-    height: 300px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    background-color: #cbd5e1;
-}
-
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* גריד דוגמאות */
-.examples-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    width: 100%;
-}
-
+.examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; width: 100%; }
 .example-item {
-    background-color: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    background-color: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
-
-.example-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-color: #3b82f6;
-}
-
-.example-item i {
-    font-size: 40px;
-    margin-bottom: 15px;
-    color: #3b82f6;
-}
+.example-item i { font-size: 40px; margin-bottom: 15px; color: #3b82f6; }
 
 /* 6. שאלות מבחן */
-.quiz-section-title {
-    text-align: center;
-    font-size: 32px;
-    color: #2563eb;
-    margin: 30px 0 20px 0;
-    font-weight: bold;
-}
-
-.quiz-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
-}
-
-.question-box {
-    background-color: #f8fafc;
-    border: 2px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 20px;
-}
-
-.question-box h4 {
-    margin: 0 0 15px 0;
-    color: #0f172a;
-    font-size: 18px;
-}
-
-.answers-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
+.quiz-section-title { text-align: center; font-size: 32px; color: #2563eb; margin: 30px 0 20px 0; font-weight: bold; }
+.quiz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+.question-box { background-color: #f8fafc; border: 2px solid #e2e8f0; border-radius: 16px; padding: 20px; }
+.answers-list { list-style: none; padding: 0; margin: 0; }
 .answers-list li {
-    background: #fff;
-    margin-bottom: 8px;
-    padding: 10px 15px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.2s;
+    background: #fff; margin-bottom: 8px; padding: 10px 15px; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; transition: all 0.2s;
 }
+.answers-list li:hover { background-color: #dbeafe; border-color: #3b82f6; }
 
-.answers-list li:hover {
-    background-color: #dbeafe;
-    border-color: #3b82f6;
-    padding-right: 20px;
-}
-
-/* צבעי רקע מיוחדים */
+/* צבעי רקע */
 .bg-green { background-color: #dcfd8b; }
 .bg-purple { background-color: #f3e8ff; }
 .bg-blue { background-color: #e0f2fe; }
@@ -226,281 +117,233 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
 
 <!-- כותרת ראשית -->
 <div class="content-card bg-green" style="text-align: center; border: 5px solid #fff;">
-    <h1>🕵️‍♂️ בלש החומרים הצעיר</h1>
-    <h2 style="border: none; font-size: 30px; font-weight: 400; margin-bottom: 0;">המדריך הסופי למבחן במדעים (כיתה ג')</h2>
+    <h1>🕵️‍♂️ בלש החומרים: המהדורה המורחבת</h1>
+    <h2 style="border: none; font-size: 30px; font-weight: 400; margin-bottom: 0;">המדריך המקיף ביותר למבחן במדעים</h2>
     <div style="margin: 30px auto; width: 150px; height: 150px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 60px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-        🚀
+        🔍
     </div>
-    <p style="font-weight: bold; font-size: 24px;">37 שאלות, סיפורים חדשים וכל החומר למבחן!</p>
+    <p style="font-weight: bold; font-size: 24px;">כאן תלמדו לא רק "מה" – אלא גם "למה" ו"איך"!</p>
 </div>
 
 <!-- פרק 1: טבעי מול מעובד -->
 <div class="content-card">
-    <h2>פרק 1: התעלומה - האם הכריך גדל על העץ?</h2>
+    <h2>פרק 1: התעלומות הגדולות - מאיפה הכל מגיע?</h2>
     
-    <div class="story-box">
-        <h3>🍕 הסיפור על עץ הפיצה</h3>
-        <p>יואב רצה לגדל פיצה. הוא שתל משולש פיצה באדמה, השקה אותו בקולה וחיכה...<br>
-        אחרי חודש, כלום לא קרה (רק מלא נמלים הגיעו).<br>
-        <strong>למה?</strong> כי פיצה היא לא <strong>חומר טבעי</strong>! היא מורכבת מחיטה (בצק), עגבניות (רוטב) וחלב (גבינה) שעברו <strong>עיבוד</strong>.</p>
-    </div>
-
     <div class="split-layout">
         <div>
-            <div class="highlight-box">
-                <h3>ההגדרה הפשוטה</h3>
-                <p><strong>חומר טבעי (חומר גלם):</strong> מתנה מהטבע. האדם מצא אותו והשתמש בו (כמו תפוח, אבן, עץ, נפט, צמר).</p>
-                <p><strong>חומר מעובד (מלאכותי):</strong> האדם לקח חומר טבעי למפעל, שינה אותו לגמרי ויצר מוצר חדש (כמו כריך, זכוכית, פלסטיק, נייר).</p>
-            </div>
+            <h3>הבסיס: חומרי גלם מול מוצרים</h3>
+            <p>העולם שלנו מורכב מחומרים. חלקם נמצאים סביבנו בדיוק כמו שהם, וחלקם היו צריכים "טיפול" רציני כדי להפוך למה שהם היום.</p>
+            
+            <h4>1. חומר טבעי (חומר גלם)</h4>
+            <p>חומר שנמצא בטבע. האדם רק <strong>אוסף</strong> אותו. הוא לא היה צריך לשנות אותו במעבדה כדי לקבל אותו.</p>
+            <ul>
+                <li><strong>דוגמאות:</strong> אבנים בנחל, עצים ביער, נפט באדמה, צמר על הכבשה, חול בים, מים.</li>
+            </ul>
+
+            <h4>2. חומר מעובד (מלאכותי)</h4>
+            <p>חומר שהאדם <strong>שינה</strong> בכוונה. הוא לקח חומר טבעי, הכניס אותו למפעל, חימם, ערבב או ריסק אותו עד שיצא חומר חדש לגמרי עם תכונות אחרות.</p>
+            <ul>
+                <li><strong>דוגמאות:</strong> נייר (לא גדל על עצים, העץ הפך לנייר!), פלסטיק, זכוכית, לחם, סוודר.</li>
+            </ul>
         </div>
         <div>
-            <div class="image-container">
-                <img src="https://placehold.co/600x400/dcfd8b/1e293b?text=%D7%98%D7%91%D7%A2+%D7%9E%D7%95%D7%9C+%D7%9E%D7%A4%D7%A2%D7%9C" alt="איור של טבע מול מפעל">
+            <div class="science-box">
+                <p><strong>למה אנחנו מעבדים חומרים?</strong><br>
+                כי לפעמים חומרי הגלם בטבע לא עוזרים לנו כמו שהם. אנחנו לא יכולים לכתוב על גזע עץ בקלות, אז אנחנו הופכים אותו ל<strong>דפים דקים ונוחים</strong>. אנחנו לא יכולים לשתות מחול, אז אנחנו הופכים אותו ל<strong>בקבוק שקוף</strong>.</p>
+            </div>
+            <div class="story-box">
+                <p><strong>עץ הפיצה:</strong> יואב חשב שפיצה היא חומר טבעי. הוא שתל משולש פיצה באדמה וקיווה שיצמח עץ פיצות. ברור שזה לא קרה! הפיצה היא מוצר <strong>מעובד</strong> – הבצק בא מחיטה, הגבינה מחלב, והרוטב מעגבניות שעברו בישול ועיבוד.</p>
             </div>
         </div>
     </div>
-</div>
 
-<!-- בנק הדוגמאות -->
-<div class="content-card bg-purple">
-    <h2>הקסם במפעל: מה הופך למה? (בנק דוגמאות מלא)</h2>
-    <p>במבחן תצטרכו לדעת ממה עשוי כל דבר. שיננו את הרשימה הזו:</p>
+    <h3 style="margin-top: 30px;">הגלגולים המרתקים (מטבע למוצר)</h3>
     <div class="examples-grid">
+        <div class="example-item">
+            <i class="fa-solid fa-flask"></i>
+            <h4>חול ⬅️ זכוכית</h4>
+            <p><strong>איך?</strong> מחממים חול לחום אדיר (1700 מעלות!) עד שהוא נמס והופך לנוזל. כשמקררים אותו – הוא הופך לזכוכית שקופה.</p>
+        </div>
         <div class="example-item">
             <i class="fa-solid fa-tree"></i>
             <h4>עץ ⬅️ נייר</h4>
-            <p>טוחנים שבבי עץ לעיסה ומרדדים לדפים.</p>
+            <p><strong>איך?</strong> מרסקים את העץ לשבבים, מבשלים אותם עם מים וחומרים מיוחדים עד שיש "עיסה", משטחים ומייבשים.</p>
         </div>
         <div class="example-item">
-            <i class="fa-solid fa-wine-bottle"></i>
-            <h4>חול ⬅️ זכוכית</h4>
-            <p>מחממים חול בתנור ענק עד שהוא נמס.</p>
-        </div>
-        <div class="example-item">
-            <i class="fa-solid fa-bottle-water"></i>
+            <i class="fa-solid fa-oil-well"></i>
             <h4>נפט ⬅️ פלסטיק</h4>
-            <p>נוזל שחור מהאדמה הופך לבקבוקים ומשחקים.</p>
+            <p><strong>איך?</strong> נפט הוא נוזל שחור מהאדמה. במפעל כימי משנים את המבנה שלו והופכים אותו לגרגירים שאפשר לעצב מהם כל דבר.</p>
         </div>
         <div class="example-item">
             <i class="fa-solid fa-shirt"></i>
             <h4>כותנה ⬅️ חולצה</h4>
-            <p>הכותנה היא צמח! טווים ממנו חוטים ותופרים בד.</p>
-        </div>
-        <div class="example-item">
-            <i class="fa-solid fa-hammer"></i>
-            <h4>סלע ⬅️ ברזל</h4>
-            <p>בתוך אבנים מסוימות יש מתכת שמתיכים בחום.</p>
-        </div>
-        <div class="example-item">
-            <i class="fa-solid fa-bowl-rice"></i>
-            <h4>חיטה ⬅️ פסטה</h4>
-            <p>טוחנים את הגרעינים לקמח ומערבבים עם מים.</p>
-        </div>
-        <div class="example-item">
-            <i class="fa-solid fa-mitten"></i>
-            <h4>צמר ⬅️ סוודר</h4>
-            <p>גוזזים את הכבשה ויוצרים חוטים חמים.</p>
-        </div>
-        <div class="example-item">
-            <i class="fa-solid fa-cookie-bite"></i>
-            <h4>קקאו ⬅️ שוקולד</h4>
-            <p>פולי הקקאו גדלים על עץ, עוברים קלייה והופכים לשוקולד.</p>
+            <p><strong>איך?</strong> קוטפים את פקעות הכותנה (שנראות כמו צמר גפן), טווים מהן חוטים דקים, ואז אורגים אותם לבד.</p>
         </div>
     </div>
 </div>
 
 <!-- פרק 2: תכונות -->
 <div class="content-card">
-    <h2>פרק 2: למה בחרתי בחומר הזה? (תכונות)</h2>
-    
-    <div class="story-box" style="border-color: #3b82f6; background-color: #eff6ff;">
-        <h3>☕ תעלומת קומקום השוקולד</h3>
-        <p>דמיינו שהייתי מכין קומקום יפהפה עשוי כולו מ<strong>שוקולד</strong>.<br>
-        הוא נראה נהדר, נכון? אבל מה יקרה ברגע שאשפוך פנימה מים רותחים לתה?<br>
-        הקומקום יימס והתה יישפך על השולחן! זו דוגמה ל<strong>בחירה גרועה של חומר</strong>.</p>
-    </div>
+    <h2>פרק 2: תעודת הזהות של החומר (תכונות)</h2>
+    <p>לכל חומר יש "אופי" משלו. האופי הזה נקרא <strong>תכונות</strong>. המדענים והמהנדסים בוחרים חומרים רק אחרי שהם בודקים את תעודת הזהות שלהם.</p>
 
     <div class="split-layout">
         <div>
-            <div class="highlight-box">
-                <h3>1. שקיפות (לראות דרך הקיר)</h3>
-                <ul>
-                    <li><strong>שקוף:</strong> זכוכית, מים, ניילון. (טוב לחלון ולאקווריום).</li>
-                    <li><strong>שקוף למחצה:</strong> וילון אמבטיה (פרטיות + אור).</li>
-                    <li><strong>אטום:</strong> בטון, עץ, ברזל. (טוב לקירות החדר).</li>
-                </ul>
-            </div>
-            <div class="highlight-box">
-                <h3>2. קשיות (מי שורט את מי?)</h3>
-                <ul>
-                    <li><strong>קשה:</strong> יהלום (הכי קשה!), ברזל, אבן.</li>
-                    <li><strong>רך:</strong> פלסטלינה, מחק, גיר.</li>
-                </ul>
+            <h4>🔍 שקיפות (האם האור עובר?)</h4>
+            <p>שקיפות היא היכולת של החומר לתת לקרני האור לעבור דרכו מבלי להיתקע.</p>
+            <ul>
+                <li><strong>שקוף:</strong> האור עובר לגמרי. (זכוכית, מים).</li>
+                <li><strong>שקוף למחצה:</strong> חלק מהאור עובר. רואים צללים אבל לא פרטים. (וילון אמבטיה).</li>
+                <li><strong>אטום:</strong> האור נחסם לגמרי. (קיר בטון, עץ).</li>
+            </ul>
+            
+            <h4>🔨 קשיות (מי חזק יותר?)</h4>
+            <p>קשיות היא לא רק "חוזק". היא היכולת של חומר אחד <strong>לשרוט</strong> חומר אחר. החומר הקשה יותר תמיד ישרוט את החומר הרך יותר.</p>
+            <div class="science-box">
+                <p><strong>איך בודקים קשיות?</strong> במבחן השריטה! אם ניקח מסמר ברזל וננסה לשרוט איתו פלסטלינה – הוא יצליח בקלות. לכן הברזל <strong>קשה</strong> יותר מהפלסטלינה.</p>
             </div>
         </div>
         <div>
-            <div class="highlight-box" style="background-color: #ecfdf5; border-color: #10b981;">
-                <h3>3. גמישות (הקפיץ)</h3>
-                <p>היכולת להתכופף ולחזור לצורה המקורית.</p>
-                <ul>
-                    <li><strong>גמיש:</strong> גומי, צינור גינה, טרמפולינה, קפיץ.</li>
-                    <li><strong>פריך/קשיח:</strong> זכוכית, מקל ארטיק (נשבר בכיפוף).</li>
-                </ul>
-            </div>
-            <div class="highlight-box" style="background-color: #fff7ed; border-color: #f97316;">
-                <h3>4. דליקות (משחק באש)</h3>
-                <ul>
-                    <li><strong>דליק (נשרף):</strong> עץ, נייר, דלק, צמר גפן.</li>
-                    <li><strong>בלתי דליק:</strong> אבן, זכוכית, מתכת, מים.</li>
-                </ul>
-            </div>
+            <h4>🤸‍♂️ גמישות (היכולת לחזור)</h4>
+            <p>חומר גמיש הוא חומר שאפשר לשנות לו את הצורה (למתוח או לכופף), אבל ברגע שנעזוב אותו – הוא <strong>יחזור בדיוק לצורתו המקורית</strong>.</p>
+            <p><strong>דוגמה:</strong> גומייה היא גמישה. פלסטלינה היא <strong>לא גמישה</strong> (היא רכה, אבל אם נמתח אותה היא לא תחזור לבד להיות כדור).</p>
+
+            <h4>🔥 דליקות (משחק באש)</h4>
+            <p>זו התכונה שקובעת אם החומר נשרף בקלות כשהוא פוגש אש.</p>
+            <ul>
+                <li><strong>דליק:</strong> עץ, נייר, דלק, אלכוהול. (טוב למדורה!).</li>
+                <li><strong>בלתי דליק:</strong> אבן, זכוכית, ברזל. (טוב לבניית בתים בטוחים).</li>
+            </ul>
         </div>
+    </div>
+
+    <div class="story-box" style="border-color: #3b82f6; background-color: #eff6ff;">
+        <h3>☕ תעלומת קומקום השוקולד</h3>
+        <p>דמיינו שהייתי בונה קומקום יפהפה עשוי כולו מ<strong>שוקולד</strong>. הוא נראה מדהים, נכון? אבל מה יקרה ברגע שאשפוך פנימה מים רותחים לתה? השוקולד ישנה את <strong>מצב הצבירה</strong> שלו ויימס מיד! התכונות של השוקולד (שהוא נמס בחום) לא מתאימות למשימה של קומקום.</p>
     </div>
 </div>
 
 <!-- פרק 3: חום -->
-<div class="content-card">
-    <h2>פרק 3: חום (מוליכים ומבודדים)</h2>
+<div class="content-card bg-blue">
+    <h2>פרק 3: חום וטמפרטורה - המוליכים והמבודדים</h2>
+    <p>חום הוא אנרגיה שאוהבת לזוז. היא תמיד תעבור מהמקום ה**חם** למקום ה**קר**.</p>
+    
     <div class="split-layout">
-        <div style="flex: 1.5;">
-            <div class="examples-grid">
-                <div class="example-item">
-                    <i class="fa-solid fa-fire-burner"></i>
-                    <h4>הסיר (מוליך)</h4>
-                    <p>עשוי מ<strong>מתכת</strong> כדי להעביר את החום מהר לאוכל.</p>
-                </div>
-                <div class="example-item">
-                    <i class="fa-solid fa-hand-holding-medical"></i>
-                    <h4>הידית (מבודד)</h4>
-                    <p>עשויה מ<strong>פלסטיק</strong> כדי שלא נקבל כוויה ביד.</p>
-                </div>
-                <div class="example-item">
-                    <i class="fa-regular fa-snowflake"></i>
-                    <h4>מעיל (מבודד)</h4>
-                    <p>מלא ב<strong>אוויר</strong> ששומר על חום הגוף שלא יברח.</p>
-                </div>
-            </div>
+        <div>
+            <h3>🔥 מוליכי חום (הכביש המהיר)</h3>
+            <p>אלו חומרים שנותנים לחום לעבור דרכם במהירות ובקלות רבה. כל המתכות הן מוליכות חום מצוינות.</p>
+            <p><strong>למה זה טוב?</strong> אנחנו בונים סירים ממתכת כי אנחנו רוצים שהחום של האש יעבור מהר מאוד לאוכל ויבשל אותו.</p>
+
+            <h3>❄️ מבודדי חום (המחסום)</h3>
+            <p>אלו חומרים ש"עוצרים" את החום ולא נותנים לו לעבור דרכם בקלות.</p>
+            <p><strong>דוגמאות:</strong> פלסטיק, עץ, קלקר, בד, ואפילו <strong>אוויר</strong>!</p>
         </div>
         <div>
-            <div class="detective-tip">
-                <p><strong>חידת האיגלו:</strong><br>
-                איך אסקימוסים גרים בבית מקרח (איגלו) ולא קופאים?<br>
-                השלג דחוס ויש בו המון בועות <strong>אוויר</strong>. האוויר הוא מבודד חום מצוין! החום של הגוף נשאר בפנים והקור נשאר בחוץ.</p>
+            <div class="science-box">
+                <p><strong>איך אוויר מחמם אותנו?</strong><br>
+                האוויר הוא אחד המבודדים הכי טובים בטבע. כשאנחנו לובשים <strong>מעיל פוך</strong>, הנוצות כולאות בתוכן המון המון אוויר. האוויר הזה לא נותן לחום הגוף שלנו לברוח החוצה לקור. המעיל לא "מייצר" חום, הוא פשוט מבודד ושומר על החום שלנו!</p>
             </div>
         </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 20px;">
+        <p><strong>בדיקת הבלש:</strong> שימו כפית מתכת וכפית פלסטיק בתוך כוס תה חמה. אחרי דקה, געו בקצה הכפית. כפית המתכת תהיה לוהטת (היא הוליכה את החום למעלה), בעוד כפית הפלסטיק תהיה נעימה למגע (היא בודדה את החום).</p>
     </div>
 </div>
 
 <!-- פרק 4: מגנטים -->
-<div class="content-card bg-blue">
-    <h2>פרק 4: המגנט הבררן</h2>
-    <p>המגנט הוא לא מושך הכל. יש לו "רשימת מוזמנים" מאוד קצרה.</p>
-    
+<div class="content-card bg-purple">
+    <h2>פרק 4: המגנט הבררן והכוח הנסתר</h2>
     <div class="split-layout">
-        <div class="highlight-box" style="background-color: #fff; border-color: #3b82f6;">
-            <h3>✅ נמשכים (החברים)</h3>
-            <p style="font-size: 24px; font-weight: bold;">רק משפחת הברזל:</p>
+        <div>
+            <p>מגנט הוא חומר שיש לו כוח משיכה מיוחד. הוא לא מושך "מתכות" באופן כללי, אלא רק קבוצה קטנה וסודית של חומרים.</p>
+            <h4>🧲 משפחת הברזל (רק אלו נמשכים!)</h4>
             <ul>
-                <li>ברזל (מסמרים)</li>
-                <li>פלדה (דלת מקרר)</li>
-                <li>ניקל</li>
+                <li><strong>ברזל</strong> (מסמרים, אטבים).</li>
+                <li><strong>פלדה</strong> (רוב המקררים, מכוניות).</li>
+                <li><strong>ניקל</strong>.</li>
             </ul>
+            <p>כל שאר המתכות – כמו <strong>זהב, כסף, אלומיניום (פחיות) ונחושת</strong> – המגנט בכלל לא מרגיש אותן!</p>
         </div>
-        <div class="highlight-box" style="background-color: #fef2f2; border-color: #ef4444;">
-            <h3>❌ לא נמשכים</h3>
-            <ul>
-                <li>זהב, כסף (תכשיטים)</li>
-                <li>נחושת, אלומיניום (פחיות)</li>
-                <li>עץ, פלסטיק, זכוכית</li>
-            </ul>
+        <div>
+            <div class="science-box">
+                <p><strong>כוח הפעולה מרחוק:</strong><br>
+                המגנט הוא קוסם אמיתי. הוא לא חייב לגעת בחפץ כדי למשוך אותו. הכוח המגנטי עובר דרך <strong>אוויר, מים, זכוכית ונייר</strong>. אם תצמידו מגנט לצד החיצוני של כוס מים עם סיכה בפנים – תוכלו להזיז את הסיכה בעזרת המגנט מבחוץ!</p>
+            </div>
         </div>
-    </div>
-    <div class="detective-tip" style="text-align: center;">
-        <p><strong>🎣 דיג מגנטי:</strong> אם תיקחו חכה עם מגנט, תוכלו "לדוג" מפתחות מתוך בריכה! המגנט עובד גם דרך מים, זכוכית ונייר.</p>
     </div>
 </div>
 
 <!-- פרק 5: תערובות ותמיסות -->
 <div class="content-card">
-    <h2>פרק 5: תערובות ותמיסות</h2>
-    
+    <h2>פרק 5: כשהחומרים נפגשים - תערובות ותמיסות</h2>
     <div class="split-layout">
-        <div class="highlight-box">
+        <div>
             <h3>🥗 תערובת (הטרוגנית)</h3>
-            <p>מערבבים, אבל <strong>רואים</strong> את ההבדל בין החומרים.</p>
-            <p><strong>דוגמאות:</strong></p>
-            <ul>
-                <li>סלט ירקות.</li>
-                <li>בוץ (אדמה שוקעת במים).</li>
-                <li>שמן ומים (השמן צף).</li>
-                <li>קורנפלקס בחלב.</li>
-            </ul>
-        </div>
-        <div class="highlight-box" style="background-color: #eff6ff;">
-            <h3>🥤 תמיסה (הומוגנית)</h3>
-            <p>מערבבים והחומר "נעלם" בתוך הנוזל. הכל נראה <strong>אחיד</strong>.</p>
-            <p><strong>דוגמאות:</strong></p>
-            <ul>
-                <li>תה עם סוכר (הסוכר נמס).</li>
-                <li>מי ים (מלח ומים - נראה צלול).</li>
-                <li>אוויר (תערובת של גזים שקופים).</li>
-                <li>ויטמינצ'יק (סירופ ומים).</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="detective-tip">
-        <p><strong>⚖️ חידת המשקל (חוק שימור המסה):</strong><br>
-        אם שמנו כפית סוכר (10 גרם) בתוך כוס תה (100 גרם) - הסוכר נמס ונעלם לעין. האם המשקל נעלם?<br>
-        <strong>לא!</strong> הכוס תשקול בדיוק <strong>110 גרם</strong> (100+10). החומר לא בורח לשום מקום.</p>
-    </div>
-</div>
+            <p>כשאנחנו שמים שני חומרים יחד והם <strong>לא מתאחדים</strong>. אנחנו יכולים לראות בעיניים את כל החלקים.</p>
+            <p><strong>דוגמאות:</strong> סלט ירקות, קורנפלקס בחלב, חול ומים (החול שוקע למטה), שמן ומים (השמן צף למעלה).</p>
 
-<!-- פרק 6: הפרדה -->
-<div class="content-card">
-    <h2>איך מפרידים? (מחזירים את הגלגל אחורה)</h2>
+            <h3>🥤 תמיסה (הומוגנית)</h3>
+            <p>זהו מקרה מיוחד של תערובת. כאן חומר אחד (המומס) מתערבב כל כך טוב בתוך חומר אחר (הממס), שהוא "נעלם" בתוכו והכל נראה <strong>אחיד וצלול</strong>.</p>
+            <p><strong>דוגמאות:</strong> תה עם סוכר, מי ים (מלח שנמס במים), פטל.</p>
+        </div>
+        <div>
+            <div class="science-box">
+                <p><strong>לאן נעלם הסוכר? (חוק שימור המסה):</strong><br>
+                הסוכר לא באמת נעלם, הוא פשוט התפרק לחלקים כל כך קטנים שהעין שלנו לא יכולה לראות. <br>
+                <strong>ההוכחה:</strong> אם נשקול כוס מים (100 גרם) ונוסיף סוכר (10 גרם) – התמיסה תשקול בדיוק <strong>110 גרם</strong>. המשקל לא משקר!</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 30px;">המעבדה של הבלש: איך מפרידים?</h3>
     <div class="examples-grid">
         <div class="example-item">
             <i class="fa-solid fa-filter"></i>
-            <h4>סינון</h4>
-            <p>עם מסננת. לפסטה, למיץ עם חתיכות, לחול עם אבנים.</p>
+            <h4>1. סינון</h4>
+            <p>משתמשים כשיש חלקים גדולים וקטנים. המסננת עוצרת את הגדולים ונותנת לקטנים לעבור.</p>
+            <p><strong>דוגמה:</strong> פסטה מהמים, עלי תה מהתה.</p>
         </div>
         <div class="example-item">
             <i class="fa-solid fa-sun"></i>
-            <h4>אידוי</h4>
-            <p>עם חום. לייצור מלח ממי הים (המים מתאדים, המלח נשאר).</p>
+            <h4>2. אידוי</h4>
+            <p>משתמשים כשיש משהו שנמס במים (תמיסה). מחממים את המים עד שהם הופכים לאדים ועפים, והמוצק נשאר בתחתית.</p>
+            <p><strong>דוגמה:</strong> להוציא מלח ממי הים.</p>
         </div>
         <div class="example-item">
             <i class="fa-solid fa-magnet"></i>
-            <h4>מגנוט</h4>
-            <p>עם מגנט. למציאת סיכות בשטיח או הפרדת ברזל בזבל.</p>
+            <h4>3. מגנוט</h4>
+            <p>משתמשים כשיש ברזל מעורבב עם דברים אחרים.</p>
+            <p><strong>דוגמה:</strong> להוציא סיכות ברזל מתוך קערת קמח.</p>
         </div>
         <div class="example-item">
             <i class="fa-solid fa-glass-water"></i>
-            <h4>שיקוע</h4>
-            <p>נותנים לחומר לנוח. קפה בוץ שוקע למטה, חול שוקע בשלולית.</p>
+            <h4>4. שיקוע</h4>
+            <p>נותנים לתערובת לנוח. החלק הכבד ירד למטה לבד.</p>
+            <p><strong>דוגמה:</strong> קפה בוץ, מים עם חול.</p>
         </div>
     </div>
 </div>
 
-<!-- פרק 7: טכנולוגיה -->
+<!-- פרק 6: טכנולוגיה -->
 <div class="content-card bg-orange">
-    <h2>טכנולוגיה וסביבה</h2>
+    <h2>פרק 6: טכנולוגיה וסביבה - מבעיה לפתרון</h2>
     <div class="split-layout">
         <div>
-            <h3>איך נולדת המצאה? (תהליך התיכון)</h3>
+            <h3>התהליך הטכנולוגי (איך ממציאים מוצר?)</h3>
+            <p>טכנולוגיה היא לא רק מחשבים. זו הדרך שבה האדם פותר בעיות בעזרת כלים וחומרים.</p>
             <ol>
-                <li><strong>הצורך:</strong> "אוף, קר לי ברגליים!"</li>
-                <li><strong>הבעיה:</strong> הרצפה קפואה.</li>
-                <li><strong>הפתרון:</strong> המצאת גרביים או נעלי בית.</li>
+                <li><strong>הצורך:</strong> "אני רוצה לשתות מים בטיול אבל אין לי במה לקחת אותם".</li>
+                <li><strong>הבעיה:</strong> המים נוזלים לי בין הידיים.</li>
+                <li><strong>הפתרון:</strong> המצאת ה<strong>בקבוק</strong> (חומר אטום למים וחזק).</li>
             </ol>
         </div>
         <div>
-            <h3>שלושת ה-Rים (סביבה)</h3>
+            <h3>שומרים על העולם (שלושת ה-Rים)</h3>
             <ul>
-                <li><strong>הפחתה:</strong> לקנות פחות שקיות.</li>
-                <li><strong>שימוש חוזר:</strong> להשתמש בצנצנת שוב לעפרונות.</li>
-                <li><strong>מיחזור:</strong> לזרוק לפח הכתום (המפעל ייצר מזה ספסל חדש).</li>
+                <li><strong>1. הפחתה:</strong> לקנות פחות מה שאנחנו לא צריכים.</li>
+                <li><strong>2. שימוש חוזר:</strong> להפוך קופסת נעליים למבצר של לגו.</li>
+                <li><strong>3. מיחזור:</strong> לזרוק לפח הכתום כדי שהמפעל ימיס את הפלסטיק וייצר ממנו ספסל חדש לגינה.</li>
             </ul>
         </div>
     </div>
@@ -508,26 +351,27 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
 
 <!-- המבחן הענק -->
 <div class="content-card" style="border: 4px solid #3b82f6;">
-    <h2 style="text-align: center; border: none; font-size: 40px; color: #2563eb;">🧠 המבחן הגדול - 37 שאלות!</h2>
-    <p style="text-align: center;">ענו על כל השאלות ובדקו את התשובות בסוף העמוד.</p>
+    <h2 style="text-align: center; border: none; font-size: 40px; color: #2563eb;">🧠 המבחן הענק: 37 שאלות חזרה</h2>
+    <p style="text-align: center;">בדקו את עצמכם! התשובות נמצאות בסוף הדף.</p>
     
     <div class="quiz-section-title">חלק א: חומרים טבעיים ומעובדים</div>
     <div class="quiz-grid">
+        <!-- Questions 1-6 -->
         <div class="question-box">
             <h4>1. דני מצא אבן יפה ביער. האבן היא:</h4>
             <ul class="answers-list">
-                <li>א. חומר מעובד</li>
-                <li>ב. חומר טבעי</li>
-                <li>ג. מוצר פלסטי</li>
-                <li>ד. חומר מומס</li>
+                <li>א. חומר מעובד שיוצר במפעל</li>
+                <li>ב. חומר טבעי שנמצא בטבע</li>
+                <li>ג. חומר פלסטי שמזהם את הסביבה</li>
+                <li>ד. תמיסה של מים ומלח</li>
             </ul>
         </div>
         <div class="question-box">
             <h4>2. מאיזה חומר גלם מייצרים זכוכית?</h4>
             <ul class="answers-list">
-                <li>א. נפט גולמי</li>
-                <li>ב. סלעי גיר</li>
-                <li>ג. חול ים שחומם</li>
+                <li>א. נפט גולמי מהאדמה</li>
+                <li>ב. סלעי גיר קשים</li>
+                <li>ג. חול ים שעבר חימום אדיר</li>
                 <li>ד. מים קפואים</li>
             </ul>
         </div>
@@ -543,8 +387,8 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
         <div class="question-box">
             <h4>4. איך הפכה הכותנה לחולצה?</h4>
             <ul class="answers-list">
-                <li>א. היא גדלה ככה על העץ</li>
-                <li>ב. זהו חומר טבעי שלא עבר שינוי</li>
+                <li>א. היא גדלה ככה על השיח</li>
+                <li>ב. זהו חומר טבעי שלא עבר שום שינוי</li>
                 <li>ג. זהו תהליך עיבוד (טוויה ותפירה)</li>
                 <li>ד. הכותנה היא סוג של פלסטיק</li>
             </ul>
@@ -555,16 +399,16 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
                 <li>א. מעצים ביער</li>
                 <li>ב. מנפט גולמי</li>
                 <li>ג. מאבנים טחונות</li>
-                <li>ד. ממים</li>
+                <li>ד. ממי ים</li>
             </ul>
         </div>
         <div class="question-box">
             <h4>6. מה ההבדל בין חיטה ללחם?</h4>
             <ul class="answers-list">
                 <li>א. שניהם חומרים טבעיים</li>
-                <li>ב. החיטה טבעית, הלחם מעובד</li>
+                <li>ב. החיטה היא חומר טבעי, הלחם הוא מעובד</li>
                 <li>ג. הלחם טבעי, החיטה מעובדת</li>
-                <li>ד. אין הבדל</li>
+                <li>ד. אין ביניהם הבדל</li>
             </ul>
         </div>
     </div>
@@ -574,8 +418,8 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
         <div class="question-box">
             <h4>7. איזו תכונה חשובה לשמשת המכונית?</h4>
             <ul class="answers-list">
-                <li>א. אטימות לאור</li>
-                <li>ב. שקיפות וחוזק</li>
+                <li>א. אטימות לאור (כדי שיהיה חושך)</li>
+                <li>ב. שקיפות (כדי לראות את הדרך) וחוזק</li>
                 <li>ג. מוליכות חשמלית</li>
                 <li>ד. גמישות כמו גומי</li>
             </ul>
@@ -584,26 +428,26 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
             <h4>8. למה מייצרים את קירות הבית מבטון?</h4>
             <ul class="answers-list">
                 <li>א. כי הוא חומר שקוף</li>
-                <li>ב. כי הוא חומר דליק (נשרף)</li>
+                <li>ב. כי הוא חומר דליק</li>
                 <li>ג. כי הוא חזק, אטום ובלתי דליק</li>
-                <li>ד. כי הוא גמיש מאוד</li>
+                <li>ד. כי הוא גמיש וקל לכופף אותו</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>9. למה בונים אקווריום מזכוכית ולא מעץ?</h4>
+            <h4>9. למה בונים אקווריום מזכוכית?</h4>
             <ul class="answers-list">
-                <li>א. כי העץ יקר יותר</li>
-                <li>ב. כי הזכוכית שקופה ואטומה למים</li>
-                <li>ג. כי הזכוכית גמישה</li>
-                <li>ד. כי דגים אוהבים זכוכית</li>
+                <li>א. כי עץ יקר יותר מזכוכית</li>
+                <li>ב. כי היא שקופה ואטומה למים</li>
+                <li>ג. כי היא גמישה ונוחה לקיפול</li>
+                <li>ד. כי דגים לא אוהבים עץ</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>10. איזו תכונה חשובה לצינור גינה?</h4>
+            <h4>10. איזו תכונה הכי חשובה לצינור גינה?</h4>
             <ul class="answers-list">
-                <li>א. שקיפות</li>
-                <li>ב. גמישות (להתפתל)</li>
-                <li>ג. מוליכות חשמל</li>
+                <li>א. שקיפות (כדי לראות את המים)</li>
+                <li>ב. גמישות (כדי להתפתל בין העצים)</li>
+                <li>ג. מוליכות חום</li>
                 <li>ד. מגנטיות</li>
             </ul>
         </div>
@@ -613,16 +457,16 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
                 <li>א. כי הברזל הוא רך ונעים</li>
                 <li>ב. כי הברזל קשה וחזק</li>
                 <li>ג. כי הברזל הוא שקוף</li>
-                <li>ד. כי הברזל גמיש כמו גומי</li>
+                <li>ד. כי הברזל גמיש כמו קפיץ</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>12. מה הכי חשוב למטריה?</h4>
+            <h4>12. מהי התכונה החשובה ביותר למטריה?</h4>
             <ul class="answers-list">
-                <li>א. שקיפות</li>
+                <li>א. שקיפות מלאה</li>
                 <li>ב. מוליכות חום</li>
-                <li>ג. אטימות למים</li>
-                <li>ד. טעם טוב</li>
+                <li>ג. אטימות למים (בלתי חדיר)</li>
+                <li>ד. מגנטיות חזקה</li>
             </ul>
         </div>
     </div>
@@ -632,9 +476,9 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
         <div class="question-box">
             <h4>13. למה גוף הסיר עשוי ממתכת?</h4>
             <ul class="answers-list">
-                <li>א. ליופי</li>
+                <li>א. ליופי ולברק</li>
                 <li>ב. כי הוא מוליך חום מהר לאוכל</li>
-                <li>ג. כי הוא מבודד חום</li>
+                <li>ג. כי הוא מבודד חום ושומר על הקור</li>
                 <li>ד. כדי שהסיר יהיה קל</li>
             </ul>
         </div>
@@ -642,7 +486,7 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
             <h4>14. למה הידיות של הסיר עשויות מפלסטיק?</h4>
             <ul class="answers-list">
                 <li>א. כי פלסטיק הוא מוליך חום מצוין</li>
-                <li>ב. כדי שהידיות יתחממו מהר</li>
+                <li>ב. כדי שהידיות יתחממו מהר כמו הסיר</li>
                 <li>ג. כי פלסטיק הוא מבודד חום (מונע כוויה)</li>
                 <li>ד. כי פלסטיק הוא חומר טבעי</li>
             </ul>
@@ -650,10 +494,10 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
         <div class="question-box">
             <h4>15. מה שומר עלינו חמים במעיל פוך?</h4>
             <ul class="answers-list">
-                <li>א. הנוצות הן תנור</li>
-                <li>ב. האוויר הכלוא מבודד את החום</li>
-                <li>ג. המעיל עשוי מברזל</li>
-                <li>ד. המעיל מוליך קור</li>
+                <li>א. הנוצות הן כמו תנור קטן</li>
+                <li>ב. האוויר הכלוא בין הנוצות מבודד את החום</li>
+                <li>ג. המעיל עשוי מברזל שמתחמם</li>
+                <li>ד. המעיל מוליך קור החוצה</li>
             </ul>
         </div>
         <div class="question-box">
@@ -661,8 +505,8 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
             <ul class="answers-list">
                 <li>א. כוס קלקר (מבודדת)</li>
                 <li>ב. כוס זכוכית דקה (מוליכה)</li>
-                <li>ג. שתיהן יהיו קרות</li>
-                <li>ד. אף תשובה לא נכונה</li>
+                <li>ג. שתיהן יהיו בדיוק באותה טמפרטורה</li>
+                <li>ד. כוס פלסטיק עבה</li>
             </ul>
         </div>
         <div class="question-box">
@@ -692,8 +536,8 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
             <ul class="answers-list">
                 <li>א. הטבעת נדבקה חזק</li>
                 <li>ב. הטבעת התחממה</li>
-                <li>ג. שום דבר (זהב לא נמשך)</li>
-                <li>ד. המגנט נשבר</li>
+                <li>ג. שום דבר (זהב לא נמשך למגנט)</li>
+                <li>ד. המגנט נשבר לשניים</li>
             </ul>
         </div>
         <div class="question-box">
@@ -702,43 +546,43 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
                 <li>א. מסמר ברזל</li>
                 <li>ב. פחית אלומיניום</li>
                 <li>ג. כפית פלסטיק</li>
-                <li>ד. מטבע שוקולד</li>
+                <li>ד. טבעת כסף</li>
             </ul>
         </div>
         <div class="question-box">
             <h4>21. האם מגנט יכול למשוך דרך מים?</h4>
             <ul class="answers-list">
-                <li>א. לא, מים עוצרים אותו</li>
-                <li>ב. כן, עובד דרך מים וזכוכית</li>
-                <li>ג. רק אם המים רותחים</li>
-                <li>ד. רק אם המים מלוחים</li>
+                <li>א. לא, המים הם מחסום לכוח המגנטי</li>
+                <li>ב. כן, הכוח המגנטי עובר דרך מים וזכוכית</li>
+                <li>ג. רק אם המים חמים מאוד</li>
+                <li>ד. רק אם המים שקופים</li>
             </ul>
         </div>
         <div class="question-box">
             <h4>22. איך משתמשים במגנט במיחזור?</h4>
             <ul class="answers-list">
-                <li>א. להרים ניירות</li>
-                <li>ב. להפריד ברזל מפלסטיק</li>
-                <li>ג. לייבש את הזבל</li>
-                <li>ד. לשטוף את הבקבוקים</li>
+                <li>א. להרים ניירות מהרצפה</li>
+                <li>ב. להפריד ברזל ופלדה מפלסטיק וזבל</li>
+                <li>ג. לייבש את הזבל הרטוב</li>
+                <li>ד. לנקות את הבקבוקים</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>23. איזו משפחה המגנט "אוהב"?</h4>
+            <h4>23. איזו משפחה המגנט "אוהב" במיוחד?</h4>
             <ul class="answers-list">
                 <li>א. כל המתכות בעולם</li>
                 <li>ב. עץ ופלסטיק</li>
                 <li>ג. ברזל, פלדה וניקל</li>
-                <li>ד. זהב וכסף</li>
+                <li>ד. זהב, כסף ונחושת</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>24. מה יקרה אם נקרב מגנט לפחית קולה?</h4>
+            <h4>24. מה יקרה אם נקרב מגנט לפחית קולה מאלומיניום?</h4>
             <ul class="answers-list">
-                <li>א. היא תידבק חזק</li>
-                <li>ב. היא לא תידבק (היא מאלומיניום)</li>
-                <li>ג. היא תתפוצץ</li>
-                <li>ד. היא תהפוך לברזל</li>
+                <li>א. היא תידבק חזק מאוד</li>
+                <li>ב. היא לא תידבק (כי אלומיניום לא מגנטי)</li>
+                <li>ג. הפחית תהפוך לשקופה</li>
+                <li>ד. המגנט יימס</li>
             </ul>
         </div>
     </div>
@@ -748,64 +592,64 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
         <div class="question-box">
             <h4>25. מהי תמיסה?</h4>
             <ul class="answers-list">
-                <li>א. תערובת שרואים את החומרים (סלט)</li>
-                <li>ב. תערובת שנראית אחידה וצלולה (תה)</li>
-                <li>ג. חומר שלא מתערבב לעולם</li>
-                <li>ד. תערובת של מוצקים בלבד</li>
+                <li>א. תערובת שבה רואים את החלקים</li>
+                <li>ב. תערובת שנראית אחידה וצלולה</li>
+                <li>ג. חומר שלא מתערבב לעולם עם מים</li>
+                <li>ד. סלט פירות</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>26. סלט ירקות הוא:</h4>
+            <h4>26. סלט ירקות הוא דוגמה ל:</h4>
             <ul class="answers-list">
-                <li>א. תמיסה</li>
-                <li>ב. תערובת (הטרוגנית)</li>
-                <li>ג. חומר גלם</li>
-                <li>ד. חומר טהור</li>
+                <li>א. תמיסה הומוגנית</li>
+                <li>ב. תערובת הטרוגנית</li>
+                <li>ג. חומר גלם טבעי</li>
+                <li>ד. גז</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>27. כוס מים (100 גרם) + כפית מלח (10 גרם). המשקל הוא:</h4>
+            <h4>27. כוס מים (100 גרם) + סוכר (10 גרם). המשקל הוא:</h4>
             <ul class="answers-list">
-                <li>א. 100 גרם (המלח נעלם)</li>
-                <li>ב. 110 גרם (החומר נשמר)</li>
+                <li>א. 100 גרם (הסוכר נעלם)</li>
+                <li>ב. 110 גרם (המשקל נשמר)</li>
                 <li>ג. 90 גרם</li>
-                <li>ד. 10 גרם</li>
+                <li>ד. 120 גרם</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>28. איך נפריד מלח ממים?</h4>
+            <h4>28. איך נפריד מלח מתוך מים (תמיסה)?</h4>
             <ul class="answers-list">
-                <li>א. בעזרת מסננת פסטה</li>
+                <li>א. בעזרת מסננת</li>
                 <li>ב. בעזרת מגנט</li>
                 <li>ג. בעזרת אידוי (חימום המים)</li>
-                <li>ד. אי אפשר להפריד</li>
+                <li>ד. בעזרת ניפוי</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>29. איך נפריד סיכות שנפלו לקמח?</h4>
+            <h4>29. איך נפריד סיכות ברזל שנפלו לקמח?</h4>
             <ul class="answers-list">
-                <li>א. נשפוך מים לקערה</li>
-                <li>ב. נשתמש במגנט שימשוך רק את הסיכות</li>
+                <li>א. נשפוך מים</li>
+                <li>ב. נשתמש במגנט</li>
                 <li>ג. נחמם את הקמח</li>
-                <li>ד. נחכה שבוע</li>
+                <li>ד. נשתמש במסננת פסטה</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>30. איך נפריד מיץ מחתיכות הפרי?</h4>
+            <h4>30. איך נפריד מיץ תפוזים מחתיכות הפרי?</h4>
             <ul class="answers-list">
-                <li>א. מגנט</li>
-                <li>ב. מסננת</li>
-                <li>ג. תנור חימום</li>
-                <li>ד. אידוי</li>
+                <li>א. בעזרת מגנט</li>
+                <li>ב. בעזרת מסננת (סינון)</li>
+                <li>ג. בעזרת אידוי</li>
+                <li>ד. בעזרת שיקוע</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>31. מה השלב הראשון בהמצאת מוצר?</h4>
+            <h4>31. מה השלב הראשון בהמצאת מוצר חדש?</h4>
             <ul class="answers-list">
-                <li>א. הפתרון</li>
+                <li>א. בניית הפתרון</li>
                 <li>ב. קניית החומרים</li>
-                <li>ג. הצורך (זיהוי מה חסר לנו)</li>
-                <li>ד. בניית המפעל</li>
+                <li>ג. זיהוי הצורך (מה חסר לנו)</li>
+                <li>ד. פרסום המוצר</li>
             </ul>
         </div>
     </div>
@@ -813,21 +657,21 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
     <div class="quiz-section-title">חלק ו: שאלות חשיבה (מה יקרה אם...)</div>
     <div class="quiz-grid">
         <div class="question-box">
-            <h4>32. מה יקרה אם נייצר סיר משוקולד?</h4>
+            <h4>32. מה יקרה אם נייצר סיר בישול משוקולד?</h4>
             <ul class="answers-list">
-                <li>א. זה יהיה נהדר לבישול</li>
-                <li>ב. הסיר יימס בחום ויהרס</li>
-                <li>ג. הסיר יהיה חזק מאוד</li>
-                <li>ד. האוכל יתבשל מהר יותר</li>
+                <li>א. האוכל יתבשל מהר מאוד</li>
+                <li>ב. הסיר יימס בחום האש ויהרס</li>
+                <li>ג. הסיר יהיה חזק יותר מברזל</li>
+                <li>ד. שוקולד הוא מוליך חום מעולה</li>
             </ul>
         </div>
         <div class="question-box">
             <h4>33. מה יקרה אם נבנה פטיש מזכוכית?</h4>
             <ul class="answers-list">
-                <li>א. הוא יהיה יפה ושקוף</li>
+                <li>א. הוא יהיה חזק ונוח</li>
                 <li>ב. הוא יישבר במכה הראשונה (שביר)</li>
                 <li>ג. הוא יהיה גמיש מאוד</li>
-                <li>ד. הוא יהיה חזק כברזל</li>
+                <li>ד. הוא יהיה קל מדי</li>
             </ul>
         </div>
         <div class="question-box">
@@ -835,34 +679,34 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
             <ul class="answers-list">
                 <li>א. החשמל יעבור מהר יותר</li>
                 <li>ב. החשמל לא יעבור (צמר הוא מבודד)</li>
-                <li>ג. המנורה תדלוק באור חזק</li>
-                <li>ד. לא יקרה כלום</li>
+                <li>ג. החוטים יתחממו מאוד</li>
+                <li>ד. המנורה תדלוק באור כחול</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>35. למה כף ערבוב של טבח עשויה מעץ?</h4>
+            <h4>35. למה כף ערבוב של טבחים עשויה מעץ?</h4>
             <ul class="answers-list">
-                <li>א. כי עץ זול</li>
+                <li>א. כי עץ הוא חומר יקר</li>
                 <li>ב. כדי לא לקבל כוויה (בידוד חום)</li>
-                <li>ג. כי עץ הוא מגנטי</li>
+                <li>ג. כי עץ מושך מגנטים</li>
                 <li>ד. כי עץ הוא שקוף</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>36. איזה חומר מתאים לקסדה?</h4>
+            <h4>36. איזה חומר הכי מתאים לקסדת אופניים?</h4>
             <ul class="answers-list">
-                <li>א. פלסטיק קשיח וקלקר (הגנה)</li>
-                <li>ב. בד דק ונעים</li>
+                <li>א. פלסטיק קשיח וקלקר (הגנה ממכות)</li>
+                <li>ב. בד משי דק ונעים</li>
                 <li>ג. ברזל כבד מאוד</li>
-                <li>ד. זכוכית שבירה</li>
+                <li>ד. זכוכית שקופה</li>
             </ul>
         </div>
         <div class="question-box">
-            <h4>37. מה היתרון בבקבוק רב-פעמי?</h4>
+            <h4>37. מה היתרון הגדול בבקבוק רב-פעמי?</h4>
             <ul class="answers-list">
-                <li>א. זורקים אותו כל יום</li>
-                <li>ב. שימוש חוזר (שומר על הסביבה)</li>
-                <li>ג. הוא עשוי מזהב</li>
+                <li>א. זורקים אותו לפח כל יום</li>
+                <li>ב. שימוש חוזר (חוסך זבל ושומר על הסביבה)</li>
+                <li>ג. הוא עשוי מיהלומים</li>
                 <li>ד. הוא חד פעמי</li>
             </ul>
         </div>
@@ -871,7 +715,7 @@ ul, ol { padding-right: 25px; margin: 0 0 20px 0; }
 
 <!-- דף תשובות -->
 <div class="content-card bg-green">
-    <h2 style="text-align: center;">🏆 דף תשובות (לבדוק רק בסוף!)</h2>
+    <h2 style="text-align: center;">🏆 דף תשובות סופי (לבדוק רק בסוף!)</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 10px; text-align: center; font-size: 18px;">
         <div style="background: white; padding: 10px; border-radius: 8px;">1. ב</div>
         <div style="background: white; padding: 10px; border-radius: 8px;">2. ג</div>
